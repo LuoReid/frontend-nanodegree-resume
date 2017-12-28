@@ -83,7 +83,7 @@ var projects = {
         title: "实施工程师",
         dates: "2009.8 - 2010.8",
         description: "虹桥枢纽港智能交通系统是虹桥枢纽港辅助系统之一。实现对虹桥港的及周围交通的监控，实现交通管理，疏导，突发情况预警。",
-        images: [ "images/project1-2.jpg", "images/project1-3.jpg"]
+        images: ["images/project1-2.jpg", "images/project1-3.jpg"]
     }, {
         title: "C# 开发工程师",
         dates: "2011.10 - 2012.6",
@@ -96,18 +96,16 @@ var projects = {
         images: []
     }],
     display: function() {
-      projects.projects.forEach(function(e){
-        $("#projects").append(HTMLprojectStart);
-
-        var formattedProjTitle = HTMLprojectTitle.replace("%data%",e.title);
-        var formattedProjDates = HTMLprojectDates.replace("%data%",e.dates);
-        var formattedProjDesc  = HTMLprojectDescription.replace("%data%",e.description);
-        $(".project-entry:last").append(formattedProjTitle,formattedProjDates,formattedProjDesc);
-
-        e.images.forEach(function(element){
-          $(".project-entry:last").append(HTMLprojectImage.replace("%data%",element));
+        projects.projects.forEach(function(e) {
+            $("#projects").append(HTMLprojectStart);
+            var formattedProjTitle = HTMLprojectTitle.replace("%data%", e.title);
+            var formattedProjDates = HTMLprojectDates.replace("%data%", e.dates);
+            var formattedProjDesc = HTMLprojectDescription.replace("%data%", e.description);
+            $(".project-entry:last").append(formattedProjTitle, formattedProjDates, formattedProjDesc);
+            e.images.forEach(function(element) {
+                $(".project-entry:last").append(HTMLprojectImage.replace("%data%", element));
+            });
         });
-      });
     }
 };
 var education = {
@@ -126,33 +124,30 @@ var education = {
         url: "https://cn.udacity.com/"
     }],
     display: function() {
-      education.schools.forEach(function(e,i,a){
-        $("#education").append(HTMLschoolStart);
-
-        var formattedSchool = HTMLschoolName.replace("%data%",e.name)+HTMLschoolDegree.replace("%data%",e.degree);
-        var formattedDates  = HTMLschoolDates.replace("%data%",e.dates);
-        var formattedLocation = HTMLschoolLocation.replace("%data%",e.location);
-        $(".education-entry:last").append(formattedSchool,formattedDates,formattedLocation);
-        e.majors.forEach(function(element){
-          $(".education-entry:last").append(HTMLschoolMajor.replace("%data%",element));
+        education.schools.forEach(function(e, i, a) {
+            $("#education").append(HTMLschoolStart);
+            var formattedSchool = HTMLschoolName.replace("%data%", e.name) + HTMLschoolDegree.replace("%data%", e.degree);
+            var formattedDates = HTMLschoolDates.replace("%data%", e.dates);
+            var formattedLocation = HTMLschoolLocation.replace("%data%", e.location);
+            $(".education-entry:last").append(formattedSchool, formattedDates, formattedLocation);
+            e.majors.forEach(function(element) {
+                $(".education-entry:last").append(HTMLschoolMajor.replace("%data%", element));
+            });
+            //var formattedDesc   = HTMLSchoolMajor.replace("%data%",e.majors);
         });
-        //var formattedDesc   = HTMLSchoolMajor.replace("%data%",e.majors);
-      });
-
-      $("#education").append(HTMLonlineClasses);
-      education.onlineCourses.forEach(function (e,i,a){
-        $("#education").append(HTMLschoolStart);
-
-        var formattedSchool = HTMLonlineTitle.replace("%data%",e.title)+HTMLonlineSchool.replace("%data%",e.school);
-        var formattedDates  = HTMLonlineDates.replace("%data%",e.dates);
-        var formattedUrl    = HTMLonlineURL.replace("%data%",e.url);
-        $(".education-entry:last").append(formattedSchool,formattedDates,formattedUrl);
-      });
+        $("#education").append(HTMLonlineClasses);
+        education.onlineCourses.forEach(function(e, i, a) {
+            $("#education").append(HTMLschoolStart);
+            var formattedSchool = HTMLonlineTitle.replace("%data%", e.title) + HTMLonlineSchool.replace("%data%", e.school);
+            var formattedDates = HTMLonlineDates.replace("%data%", e.dates);
+            var formattedUrl = HTMLonlineURL.replace("%data%", e.url);
+            $(".education-entry:last").append(formattedSchool, formattedDates, formattedUrl);
+        });
     }
 };
 bio.display();
 work.display();
 projects.display();
 education.display();
- $("#mapDiv").append(googleMap);
+$("#mapDiv").append(googleMap);
 //$("#mapDiv").append(gaodeMap);
